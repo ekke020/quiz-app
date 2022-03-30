@@ -10,3 +10,5 @@ export const getData = async () => {
 
   console.log(quizobject);
 };
+
+export const getQuestions = async (inputDataObj) => {};

@@ -1,41 +1,40 @@
-import { categories, type, difficulty } from '../userInputData';
+import { eventWrapper } from '@testing-library/user-event/dist/utils';
+import { categories, type, difficulties } from '../userInputData';
+import InputNumbers from './InputNumbers';
 
 import Select from './Select';
-import Select2 from './Select';
 
 const Welcome = () => {
+  const click = (event) => {
+    event.preventDefault();
+    const inputData = {
+      nrQuestions: event.target[0].value,
+      category: event.target[1].value,
+      type: event.target[2].value,
+      difficulty: event.target[3].value
+    }
+   
+  }
   return (
     <div>
       <h1>Welcome to our Quiz!</h1>
-      <label htmlFor='numberOfQuestions'>Number of Questions</label>
-      <br />
-      <div>
-        <select name='numberOfQuestions' id='numQuestions'>
-          <option value='optionOne'>1</option>
-          <option value='optionTwo'>2</option>
-          <option value='optionThree'>3</option>
-          <option value='optionFour'>4</option>
-          <option value='optionFive'>5</option>
-        </select>
-      </div>
-      <br />
+      <p>Please make some choices!</p>
+
+      <form onSubmit={(e) => click(e)}>
+      <InputNumbers />
+      
       <Select options={categories} name={'category'} id={'id'} />
-      <br />
-
-      <div>
-        <Select options={type} name={'type'} id={'typeId'} />
-      </div>
-      <br />
-
-      <div>
-        <Select options={type} name={'type'} id={'typeId'} />
-      </div>
-      <br />
-      <div>
-        <button onClick={() => {}}>Start the Quiz!</button>
-      </div>
+     
+      <Select options={type} name={'type'} id={'typeId'} />
+     
+      <Select options={difficulties} name={'difficulties'} id={'diffId'} />
+     
+      <input type="submit" value="Start quiz"/>
+      </form>
     </div>
   );
 };
 
 export default Welcome;
+
+// onClick={click}

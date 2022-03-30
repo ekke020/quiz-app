@@ -7,4 +7,4 @@ export const categories = [
 
 export const type = ['True or False', 'Multiple choice'];
 
-export const difficulty = ['Any Difficulty', 'Easy', 'Medium', 'Hard'];
+export const difficulties = ['Any Difficulty', 'Easy', 'Medium', 'Hard'];
