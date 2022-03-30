@@ -1,7 +1,10 @@
+import Welcome from './components/Welcome';
+import { getData } from './services/questionService';
+
 function App() {
   return (
     <div>
-      <h1>Hello world!!</h1>
+      <Welcome />
     </div>
   );
 }
