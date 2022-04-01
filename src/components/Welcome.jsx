@@ -1,9 +1,10 @@
 import { categories, type, difficulties } from '../userInputData';
 import InputNumbers from './InputNumbers';
 import Select from './Select';
+import { getData } from '../services/questionService';
 
 const Welcome = ({ setData }) => {
-  const click = (event) => {
+  const click = async (event) => {
     event.preventDefault();
     const inputData = {
       amount: event.target[0].value,
@@ -11,9 +12,10 @@ const Welcome = ({ setData }) => {
       difficulty: event.target[2].value,
       type: event.target[3].value,
     };
-    console.log(setData);
-    setData(inputData);
+    const data = await getData(inputData);
+    setData(data);
   };
+
   return (
     <div>
       <h1>Welcome to our Quiz!</h1>
@@ -28,12 +30,10 @@ const Welcome = ({ setData }) => {
 
         <Select options={type} name={'type'} id={'typeId'} />
 
-
-        <input type="submit" value="Start quiz" />
+        <input type='submit' value='Start quiz' />
       </form>
     </div>
   );
 };
 
 export default Welcome;
-
