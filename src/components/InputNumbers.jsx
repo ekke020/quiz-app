@@ -5,7 +5,7 @@ const InputNumbers = () => {
     <div style={style}>
       <label>Amount of questions</label>
       <br />
-      <input type="number" min={1}></input>
+      <input type="number" min={1} defaultValue={10}></input>
     </div>
   );
 };

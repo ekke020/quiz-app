@@ -5,8 +5,12 @@ const baseurl = 'https://opentdb.com/api.php';
 const testUrl =
   'https://opentdb.com/api.php?amount=10&difficulty=easy&type=boolean';
 
-export const getData = async () => {
-  let quizobject = await axios.get(testUrl);
+const checkData = () => {};
+
+export const getData = async (data) => {
+
+
+  let quizobject = await axios.get(baseurl, { params: data });
 
   console.log(quizobject);
 };

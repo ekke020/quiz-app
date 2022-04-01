@@ -5,8 +5,8 @@ const Select = ({ options, name, id }) => {
   return (
     <div style={style}>
       <select name={name} id={id}>
-        {options.map((e, index) => (
-          <CategorySelection key={index} text={e} />
+        {options.map((option, index) => (
+          <CategorySelection key={index} value={option.value} name={option.name} />
         ))}
       </select>
     </div>
