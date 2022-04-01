@@ -1,10 +1,14 @@
 import Welcome from './components/Welcome';
 import { getData } from './services/questionService';
+import { useState } from "react";
+import GameScreen from './components/GameScreen';
+
 
 function App() {
+  const [data, setData] = useState(null)
   return (
     <div>
-      <Welcome />
+      {data ? <GameScreen data={data}/> : <Welcome setData={setData} />}
     </div>
   );
 }
