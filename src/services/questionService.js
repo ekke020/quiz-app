@@ -1,4 +1,7 @@
 import axios from 'axios';
+
+const deCodeHtml = require('he');
+
 const baseurl = 'https://opentdb.com/api.php';
 
 const shuffle = (arr) => {
@@ -6,10 +9,13 @@ const shuffle = (arr) => {
 };
 const createQuestionObject = (result) => {
   return {
-    category: result.category,
-    correctAnswer: result.correct_answer,
-    alternatives: shuffle([...result.incorrect_answers, result.correct_answer]),
-    question: result.question,
+    category: deCodeHtml.decode(result.category),
+    correctAnswer: deCodeHtml.decode(result.correct_answer),
+    alternatives: shuffle([
+      deCodeHtml.decode(...result.incorrect_answers),
+      deCodeHtml.decode(result.correct_answer),
+    ]),
+    question: deCodeHtml.decode(result.question),
   };
 };
 
