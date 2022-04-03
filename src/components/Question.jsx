@@ -1,29 +1,26 @@
-import Button from './Button';
+import { incrementCount } from "../reducers/countReducer";
+import { useDispatch } from "react-redux";
 
 const Question = ({
   category,
   question,
   alternatives,
-  correctAnswer,
-  setRightAnswers,
-  setCounter,
-  amountOfRightAnswers,
-  counter,
+  correctAnswer
 }) => {
+  const dispatch = useDispatch();
+  const buttonClicked = (event) => {
+    event.preventDefault();
+    dispatch(incrementCount());
+  }
   return (
     <div>
       <h2>{category}</h2>
       <p>{question}</p>
       {alternatives.map((alternative, index) => (
-        <Button
-          key={index}
-          alternative={alternative}
-          setRightAnswers={setRightAnswers}
-          setCounter={setCounter}
-          amountOfRightAnswers={amountOfRightAnswers}
-          counter={counter}
-          correctAnswer={correctAnswer}
-        />
+        <button onClick={buttonClicked} key={index} value={alternative}>
+          {alternative}
+          </button>
+      
       ))}
     </div>
   );

@@ -1,27 +1,21 @@
-import { getData } from '../services/questionService';
-import { useState, useEffect } from 'react';
+
 import Question from './Question';
+import { useSelector } from 'react-redux';
 
-const GameScreen = ({ data }) => {
-  const [counter, setCounter] = useState(0);
-  const [amountOfRightAnswers, setRightAnswers] = useState(0);
-
-  console.log('Score' + amountOfRightAnswers);
-  console.log('Clicks' + counter);
+const GameScreen = () => {
+ 
+  const count = useSelector(state => state.count);
+  const questions = useSelector(state => state.questions)
 
   return (
     <div>
       <h1>Quiz Game</h1>
-      {counter < data.length && (
+      {count < questions.length && (
         <Question
-          category={data[counter].category}
-          question={data[counter].question}
-          alternatives={data[counter].alternatives}
-          correctAnswer={data[counter].correctAnswer}
-          setCounter={setCounter}
-          setRightAnswers={setRightAnswers}
-          amountOfRightAnswers={amountOfRightAnswers}
-          counter={counter}
+          category={questions[count].category}
+          question={questions[count].question}
+          alternatives={questions[count].alternatives}
+          correctAnswer={questions[count].correctAnswer}
         />
       )}
     </div>

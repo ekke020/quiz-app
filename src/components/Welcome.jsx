@@ -2,8 +2,12 @@ import { categories, type, difficulties } from '../userInputData';
 import InputNumbers from './InputNumbers';
 import Select from './Select';
 import { getData } from '../services/questionService';
+import { useDispatch } from 'react-redux';
+import { setQuestions } from '../reducers/questionsReducer';
+import { setGameState } from '../reducers/quizStateReducer';
 
-const Welcome = ({ setData }) => {
+const Welcome = () => {
+  const dispatch = useDispatch();
   const click = async (event) => {
     event.preventDefault();
     const inputData = {
@@ -13,7 +17,8 @@ const Welcome = ({ setData }) => {
       type: event.target[3].value,
     };
     const data = await getData(inputData);
-    setData(data);
+    dispatch(setQuestions(data));
+    dispatch(setGameState('GAME_SCREEN'));
   };
 
   return (
