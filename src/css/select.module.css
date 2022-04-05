@@ -1,0 +1,12 @@
+.selectBody {
+  /* background-color: green; */
+  display: grid;
+  /* margin: 0.2rem 0.5rem; */
+}
+
+.dropdown {
+  border-radius: 0.5rem;
+  border-color: #5aa2ae;
+  background-color: #82c5c438;
+  margin: 0.3rem 0;
+}

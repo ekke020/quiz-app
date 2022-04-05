@@ -1,0 +1,10 @@
+.gameContainer {
+  background-color: #82c5c452;
+  margin: auto;
+  width: 22rem;
+  display: flex;
+  border: 1px solid #82c5c4;
+  border-radius: 0.5rem;
+  align-items: baseline;
+  justify-content: center;
+}

@@ -1,0 +1,21 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputNumber {
+  border: 1px solid #5aa1ae70;
+  border-radius: 0.5rem;
+  border-color: #5aa2ae;
+  margin-bottom: 0.3rem;
+}
+
+.formButton {
+  border: 1px solid #5aa1ae70;
+  border-radius: 0.5rem;
+  border-color: #5aa2ae;
+  margin: 1rem;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0.4rem;
+}
