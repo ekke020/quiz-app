@@ -4,7 +4,7 @@ import Select from './Select';
 import { getData } from '../services/questionService';
 import { useDispatch } from 'react-redux';
 import { setQuestions } from '../reducers/questionsReducer';
-import { setGameState } from '../reducers/quizStateReducer';
+import { setGameState } from '../reducers/gameStateReducer';
 
 const Welcome = () => {
   const dispatch = useDispatch();

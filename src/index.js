@@ -5,7 +5,7 @@ import App from './App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import countReducer from './reducers/countReducer';
-import quizStateReducer from './reducers/quizStateReducer';
+import gameStateReducer from './reducers/gameStateReducer';
 import questionsReducer from './reducers/questionsReducer';
 
 const container = document.getElementById('root');
@@ -13,7 +13,7 @@ const root = createRoot(container);
 
 const rootReducer = combineReducers({
   count: countReducer,
-  quiz: quizStateReducer,
+  gameState: gameStateReducer,
   questions: questionsReducer,
 });
 

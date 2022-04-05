@@ -15,8 +15,8 @@ export const resetCount = () => {
 const countReducer = (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
-      const newState = ++state;
-      return newState;
+      let newState = state;
+      return ++newState;
     case 'RESET':
       return 0;
     default:
