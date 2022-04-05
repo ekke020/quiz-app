@@ -1,6 +1,5 @@
 import styles from '../css/startScreen.module.css';
 import { categories, type, difficulties } from '../userInputData';
-import InputNumbers from './InputNumbers';
 import Select from './Select';
 import { getData } from '../services/questionService';
 import { useDispatch } from 'react-redux';
@@ -24,9 +23,11 @@ const Welcome = () => {
   };
 
   return (
-    <div>
-      <h1>Welcome to our Quiz!</h1>
-      <p>Please make some choices!</p>
+    <div className={styles.container}>
+      <div>
+        <h1>Welcome to our Quiz!</h1>
+        <p>Please make some choices!</p>
+      </div>
       <form onSubmit={(e) => click(e)}>
         <div>
           <label>Amount of questions</label>
