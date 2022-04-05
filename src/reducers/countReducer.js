@@ -1,5 +1,3 @@
-// keeps track of which question it is
-
 export const incrementCount = () => {
   return {
     type: 'INCREMENT',
