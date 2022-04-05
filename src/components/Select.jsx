@@ -1,12 +1,12 @@
-const Select = ({ options, name }) => {
-  const style = { margin: '10px' };
+import styles from '../css/select.module.css';
 
+const Select = ({ options, name }) => {
   return (
-    <div style={style}>
+    <div className={styles.selectBody}>
       <div>
         <label>{name}</label>
       </div>
-      <select name={name}>
+      <select className={styles.dropdown} name={name}>
         {options.map((option, index) => (
           <option key={index} value={option.value}>
             {option.name}

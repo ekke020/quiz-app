@@ -16,7 +16,6 @@ const GameScreen = () => {
     <div>
       <h1>Quiz Game</h1>
       {count < questions.length && <Question question={questions[count]} />}
-      {}
     </div>
   );
 };

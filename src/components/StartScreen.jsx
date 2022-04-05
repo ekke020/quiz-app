@@ -1,3 +1,4 @@
+import styles from '../css/startScreen.module.css';
 import { categories, type, difficulties } from '../userInputData';
 import InputNumbers from './InputNumbers';
 import Select from './Select';
@@ -27,11 +28,19 @@ const Welcome = () => {
       <h1>Welcome to our Quiz!</h1>
       <p>Please make some choices!</p>
       <form onSubmit={(e) => click(e)}>
-        <InputNumbers />
+        <div>
+          <label>Amount of questions</label>
+        </div>
+        <input
+          className={styles.inputNumber}
+          type='number'
+          min={1}
+          defaultValue={10}
+        ></input>
         <Select options={categories} name={'Category'} />
         <Select options={difficulties} name={'Difficulty'} />
         <Select options={type} name={'Game type'} />
-        <input type='submit' value='Start quiz' />
+        <input className={styles.formButton} type='submit' value='Start quiz' />
       </form>
     </div>
   );

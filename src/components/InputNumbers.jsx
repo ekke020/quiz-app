@@ -1,8 +1,6 @@
 const InputNumbers = () => {
-  const style = { margin: '10px' };
-
   return (
-    <div style={style}>
+    <div>
       <div>
         <label>Amount of questions</label>
       </div>
