@@ -1,4 +1,4 @@
-import Welcome from '../components/StartScreen';
+import StartScreen from '../components/StartScreen';
 import GameScreen from '../components/GameScreen';
 import ResultScreen from '../components/ResultScreen';
 import LoadingScreen from '../components/LoadingScreen';
@@ -9,10 +9,10 @@ export const setGameState = (gameState) => {
   };
 };
 
-const gameStateReducer = (state = <Welcome />, action) => {
+const gameStateReducer = (state = <StartScreen />, action) => {
   switch (action.type) {
     case 'START_SCREEN':
-      return <Welcome />;
+      return <StartScreen />;
     case 'GAME_SCREEN':
       return <GameScreen />;
     case 'RESULT_SCREEN':
