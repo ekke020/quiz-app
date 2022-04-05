@@ -3,11 +3,11 @@ const InputNumbers = () => {
 
   return (
     <div style={style}>
-      <label>Amount of questions</label>
-      <br />
-      <input type="number" min={1} defaultValue={10}></input>
+      <div>
+        <label>Amount of questions</label>
+      </div>
+      <input type='number' min={1} defaultValue={10}></input>
     </div>
   );
 };
-
 export default InputNumbers;
