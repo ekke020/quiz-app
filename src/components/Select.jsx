@@ -1,12 +1,16 @@
-import CategorySelection from './CategorySelection';
-
-const Select = ({ options, name, id }) => {
+const Select = ({ options, name }) => {
   const style = { margin: '10px' };
+
   return (
     <div style={style}>
-      <select name={name} id={id}>
+      <div>
+        <label>{name}</label>
+      </div>
+      <select name={name}>
         {options.map((option, index) => (
-          <CategorySelection key={index} value={option.value} name={option.name} />
+          <option key={index} value={option.value}>
+            {option.name}
+          </option>
         ))}
       </select>
     </div>
