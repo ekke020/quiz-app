@@ -1,6 +1,7 @@
 import { incrementCount } from '../reducers/countReducer';
 import { answerQuestion } from '../reducers/questionsReducer';
 import { useDispatch } from 'react-redux';
+import styles from '../css/gameScreen.module.css';
 
 const Question = (props) => {
   const { category, question, alternatives, correctAnswer, id } =
@@ -12,14 +13,21 @@ const Question = (props) => {
     dispatch(incrementCount());
   };
   return (
-    <div>
-      <h2>{category}</h2>
-      <p>{question}</p>
-      {alternatives.map((alternative, index) => (
-        <button onClick={buttonClicked} key={index} value={alternative}>
-          {alternative}
-        </button>
-      ))}
+    <div className={styles.container}>
+      <h2 className={styles.categoryContainer}>{category}</h2>
+      <p className={styles.pContainer}>{question}</p>
+      <div className={styles.questionContainer}>
+        {alternatives.map((alternative, index) => (
+          <button
+            className={styles.buttonContainer}
+            onClick={buttonClicked}
+            key={index}
+            value={alternative}
+          >
+            {alternative}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

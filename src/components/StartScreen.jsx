@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setQuestions } from '../reducers/questionsReducer';
 import { setGameState } from '../reducers/gameStateReducer';
 
-const Welcome = () => {
+const StartScreen = () => {
   const dispatch = useDispatch();
   const click = async (event) => {
     event.preventDefault();
@@ -47,4 +47,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default StartScreen;

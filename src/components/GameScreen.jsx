@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { setGameState } from '../reducers/gameStateReducer';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import styles from '../css/startScreen.module.css';
 
 const GameScreen = () => {
   const count = useSelector((state) => state.count);
@@ -14,7 +15,6 @@ const GameScreen = () => {
 
   return (
     <div>
-      <h1>Quiz Game</h1>
       {count < questions.length && <Question question={questions[count]} />}
     </div>
   );
