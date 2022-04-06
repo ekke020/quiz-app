@@ -2,33 +2,40 @@ import styles from '../css/startScreen.module.css';
 import { categories, type, difficulties } from '../userInputData';
 import Select from './Select';
 import { getData } from '../services/questionService';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setQuestions } from '../reducers/questionsReducer';
 import { setGameState } from '../reducers/gameStateReducer';
-import { useEffect } from 'react';
+import { setMsg } from '../reducers/msgReducer';
 
-let msg = "Please make some choices";
+
 const StartScreen = () => {
-  useEffect(() => {msg = "Please make some choices"}, []);
   const dispatch = useDispatch();
+
+  const startGame = (data) => {
+    dispatch(setQuestions(data));
+    dispatch(setMsg('START_MSG'));
+    dispatch(setGameState('GAME_SCREEN')); 
+  }
+
+  const getNewUserInput = () => {
+    dispatch(setMsg('ERROR_MSG'));
+    dispatch(setGameState('START_SCREEN'));
+  }
+
+  let msg = useSelector((state) => state.msg);
+
   const click = async (event) => {
     event.preventDefault();
-    const inputData = {
-      amount: event.target[0].value,
-      category: event.target[1].value,
-      difficulty: event.target[2].value,
-      type: event.target[3].value,
-    };
-
+    const obj = {};
+    const temp = [{param: 'amount'}, {param: 'category'}, {param: 'difficulty'}, {param: 'type'}]; 
+    const input = temp.map( item => { 
+      obj[item.param] = event.target[temp.indexOf(item)].value;
+      return obj;
+     }); 
     dispatch(setGameState('LOADING_SCREEN'));
-    const data = await getData(inputData);
-    if (data.length === 0) {
-      msg = "Could not find any questions for given input";
-      dispatch(setGameState('START_SCREEN'));
-      return;
-    }
-    dispatch(setQuestions(data));
-    dispatch(setGameState('GAME_SCREEN'));
+    const data = await getData(input[0]);
+
+    data.length !== 0 ? startGame(data) : getNewUserInput();
   };
 
   return (
