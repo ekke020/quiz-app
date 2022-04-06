@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import countReducer from './reducers/countReducer';
 import gameStateReducer from './reducers/gameStateReducer';
 import questionsReducer from './reducers/questionsReducer';
+import msgReducer from './reducers/msgReducer';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   count: countReducer,
   gameState: gameStateReducer,
   questions: questionsReducer,
+  msg: msgReducer,
 });
 
 const store = createStore(rootReducer);
