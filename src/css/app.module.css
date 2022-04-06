@@ -1,6 +1,7 @@
 .gameContainer {
   margin-top: 2rem;
-  height: 100vh;
+  min-height: 500px;
+
 }
 
 .gameSettings {
@@ -13,6 +14,7 @@
 }
 
 .darkmode,
+.darkmode body,
 .darkmode option,
 .darkmode select,
 .darkmode input,

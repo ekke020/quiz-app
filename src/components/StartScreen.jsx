@@ -5,8 +5,11 @@ import { getData } from '../services/questionService';
 import { useDispatch } from 'react-redux';
 import { setQuestions } from '../reducers/questionsReducer';
 import { setGameState } from '../reducers/gameStateReducer';
+import { useEffect } from 'react';
 
+let msg = "Please make some choices";
 const StartScreen = () => {
+  useEffect(() => {msg = "Please make some choices"}, []);
   const dispatch = useDispatch();
   const click = async (event) => {
     event.preventDefault();
@@ -16,8 +19,14 @@ const StartScreen = () => {
       difficulty: event.target[2].value,
       type: event.target[3].value,
     };
+
     dispatch(setGameState('LOADING_SCREEN'));
     const data = await getData(inputData);
+    if (data.length === 0) {
+      msg = "Could not find any questions for given input";
+      dispatch(setGameState('START_SCREEN'));
+      return;
+    }
     dispatch(setQuestions(data));
     dispatch(setGameState('GAME_SCREEN'));
   };
@@ -26,7 +35,7 @@ const StartScreen = () => {
     <div className={styles.container}>
       <div>
         <h1>Welcome to our Quiz!</h1>
-        <p>Please make some choices!</p>
+        <p>{msg}</p>
       </div>
       <form onSubmit={(e) => click(e)}>
         <div>

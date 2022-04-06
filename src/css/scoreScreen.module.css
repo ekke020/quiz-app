@@ -1,10 +1,10 @@
 .titleContent {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  /*align-items: flex-start;*/
   margin: 0 2rem;
   font-weight: bold;
-  font-family: bold;
+  font-family: Helvetica;
 }
 
 .titleContent h1 {
@@ -14,7 +14,7 @@
 
 .score {
   margin: 0;
-  font-size: 30px;
+  font-size: 50px;
 }
 
 .question {
@@ -22,6 +22,8 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
   background-color: #ff603887;
   transition: height ease 1s;
+  border: 1px solid darkgray;
+  border-radius: 0.5rem;
 }
 
 .correct {
