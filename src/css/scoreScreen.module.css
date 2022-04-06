@@ -1,0 +1,38 @@
+.titleContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 2rem;
+  font-weight: bold;
+  font-family: bold;
+}
+
+.titleContent h1 {
+  margin: 0;
+  font-size: 50px;
+}
+
+.score {
+  margin: 0;
+  font-size: 30px;
+}
+
+.question {
+  margin: 1rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+  background-color: #ff603887;
+  transition: height ease 1s;
+}
+
+.correct {
+  background-color: #00a38886;
+}
+
+.question:hover {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.5));
+}
+
+.question p {
+  margin: 0.5rem 1rem;
+}
