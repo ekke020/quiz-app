@@ -1,16 +1,12 @@
 .gameContainer {
   margin-top: 2rem;
-  min-height: 500px;
-
+  min-height: 100vh;
 }
 
 .gameSettings {
   display: flex;
   list-style: none;
   justify-content: center;
-}
-
-.lightmode {
 }
 
 .darkmode,
