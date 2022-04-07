@@ -10,6 +10,7 @@ import { setMsg } from '../reducers/msgReducer';
 
 const StartScreen = () => {
   const dispatch = useDispatch();
+  let msg = useSelector((state) => state.msg);
 
   const startGame = (data) => {
     dispatch(setQuestions(data));
@@ -22,19 +23,14 @@ const StartScreen = () => {
     dispatch(setGameState('START_SCREEN'));
   }
 
-  let msg = useSelector((state) => state.msg);
-
   const click = async (event) => {
     event.preventDefault();
-    const obj = {};
-    const temp = [{param: 'amount'}, {param: 'category'}, {param: 'difficulty'}, {param: 'type'}]; 
-    const input = temp.map( item => { 
-      obj[item.param] = event.target[temp.indexOf(item)].value;
-      return obj;
-     }); 
+    const input = {amount: '', category: '', difficulty: '', type: ''};
+    Object.keys(input).map((key, index) => {
+      input[key] = event.target[index].value;
+    });
     dispatch(setGameState('LOADING_SCREEN'));
-    const data = await getData(input[0]);
-
+    const data = await getData(input);
     data.length !== 0 ? startGame(data) : getNewUserInput();
   };
 
